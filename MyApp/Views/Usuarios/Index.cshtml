@@ -1,0 +1,47 @@
+@model IEnumerable<MyApp.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Usuarios</h1>
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        Nuevo Usuario
+    </a>
+</div>
+
+<div class="row">
+    @foreach (var usuario in Model)
+    {
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">@usuario.Nombre</h5>
+                    <p class="card-text">
+                        <strong>Email:</strong> @usuario.Email<br>
+                        <strong>Rol:</strong> 
+                        <span class="badge @(usuario.Rol == "Funcionario" ? "bg-success" : "bg-info")">
+                            @usuario.Rol
+                        </span><br>
+                        <strong>Registro:</strong> @usuario.FechaRegistro.ToString("dd/MM/yyyy")
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="@Url.Action("Details", new { id = usuario.Id })" class="btn btn-outline-primary btn-sm">
+                        Ver Detalles
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        <h4>No hay usuarios registrados</h4>
+        <p>Comience registrando el primer usuario del sistema.</p>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Registrar Usuario</a>
+    </div>
+}

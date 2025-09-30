@@ -1,0 +1,58 @@
+@model MyApp.Models.Usuario
+
+@{
+    ViewData["Title"] = "Nuevo Usuario";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Registrar Nuevo Usuario</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post, new { @class = "" }))
+                {
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Nombre" class="form-label">Nombre Completo</label>
+                        <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre completo" required />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Correo Electrónico</label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="usuario@ejemplo.com" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Rol" class="form-label">Rol</label>
+                        <select asp-for="Rol" class="form-select" required>
+                            <option value="Aprendiz">Aprendiz</option>
+                            <option value="Funcionario">Funcionario</option>
+                        </select>
+                        <span asp-validation-for="Rol" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        console.log('Formulario cargado');
+        document.querySelector('form').addEventListener('submit', function(e) {
+            console.log('Formulario enviado');
+            console.log('Method:', this.method);
+            console.log('Action:', this.action);
+        });
+    </script>
+}

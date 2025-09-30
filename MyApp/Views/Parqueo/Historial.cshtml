@@ -1,0 +1,55 @@
+@model IEnumerable<MyApp.Models.RegistroParqueo>
+
+@{
+    ViewData["Title"] = "Historial de Parqueo";
+}
+
+<h1>Historial de Parqueo</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Placa</th>
+                <th>Tipo</th>
+                <th>Propietario</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+                <th>Estado</th>
+                <th>Tiempo (min)</th>
+                <th>Valor Pagado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registro in Model)
+            {
+                <tr>
+                    <td><strong>@registro.Vehiculo.Placa</strong></td>
+                    <td>
+                        <span class="badge @(registro.Vehiculo.Tipo == "Carro" ? "bg-primary" : "bg-info")">
+                            @registro.Vehiculo.Tipo
+                        </span>
+                    </td>
+                    <td>@registro.Vehiculo.Usuario.Nombre</td>
+                    <td>@registro.FechaHoraEntrada.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@registro.FechaHoraSalida?.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        <span class="badge @(registro.Estado == "Dentro" ? "bg-success" : "bg-warning")">
+                            @registro.Estado
+                        </span>
+                    </td>
+                    <td>@registro.TiempoMinutos</td>
+                    <td class="text-end">$@registro.ValorPagado?.ToString("N0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        <h4>No hay registros en el historial</h4>
+        <p>Los registros de salida aparecerán aquí una vez que los vehículos salgan del parqueadero.</p>
+    </div>
+}

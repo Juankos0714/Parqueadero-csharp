@@ -1,0 +1,62 @@
+@model MyApp.Models.Vehiculo
+
+@{
+    ViewData["Title"] = "Nuevo Vehículo";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">Registrar Nuevo Vehículo</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Vehiculos", FormMethod.Post))
+                {
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Placa" class="form-label">Placa</label>
+                        <input asp-for="Placa" class="form-control" placeholder="ABC123" required />
+                        <span asp-validation-for="Placa" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Tipo" class="form-label">Tipo de Vehículo</label>
+                        <select asp-for="Tipo" class="form-select" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Carro">Carro</option>
+                            <option value="Moto">Moto</option>
+                        </select>
+                        <span asp-validation-for="Tipo" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Marca" class="form-label">Marca</label>
+                        <input asp-for="Marca" class="form-control" placeholder="Toyota, Honda, etc." required />
+                        <span asp-validation-for="Marca" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Modelo" class="form-label">Modelo</label>
+                        <input asp-for="Modelo" class="form-control" placeholder="Corolla, Civic, etc." required />
+                        <span asp-validation-for="Modelo" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="UsuarioId" class="form-label">Propietario</label>
+                        <select asp-for="UsuarioId" class="form-select" asp-items="ViewBag.UsuarioId" required>
+                            <option value="">Seleccione el propietario...</option>
+                        </select>
+                        <span asp-validation-for="UsuarioId" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

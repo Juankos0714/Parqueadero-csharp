@@ -1,0 +1,130 @@
+@{
+    ViewData["Title"] = "Panel Principal";
+}
+
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-4 text-center mb-4">Sistema de Gestión de Parqueadero</h1>
+        <p class="lead text-center mb-5">Control inteligente de espacios y tarifas</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Disponibilidad Carros -->
+    <div class="col-md-6">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Estado Carros</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h3 class="text-success">@ViewBag.CarrosDentro</h3>
+                        <p class="mb-0">Dentro</p>
+                        <small class="text-muted">de 20 espacios</small>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-warning">@ViewBag.CarrosFuera</h3>
+                        <p class="mb-0">En espera</p>
+                        <small class="text-muted">fuera del parqueadero</small>
+                    </div>
+                </div>
+                <div class="progress mt-3">
+                    <div class="progress-bar bg-success" style="width: @((ViewBag.CarrosDentro * 100) / 20)%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disponibilidad Motos -->
+    <div class="col-md-6">
+        <div class="card border-info">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">Estado Motos</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6">
+                        <h3 class="text-success">@ViewBag.MotosDentro</h3>
+                        <p class="mb-0">Dentro</p>
+                        <small class="text-muted">de 20 espacios</small>
+                    </div>
+                    <div class="col-6">
+                        <h3 class="text-warning">@ViewBag.MotosFuera</h3>
+                        <p class="mb-0">En espera</p>
+                        <small class="text-muted">fuera del parqueadero</small>
+                    </div>
+                </div>
+                <div class="progress mt-3">
+                    <div class="progress-bar bg-info" style="width: @((ViewBag.MotosDentro * 100) / 20)%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tarifas -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Tarifas por Hora</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <div class="p-3 border rounded">
+                            <h4 class="text-primary">$2,000</h4>
+                            <p class="mb-0">Carro Dentro</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="p-3 border rounded">
+                            <h4 class="text-info">$1,500</h4>
+                            <p class="mb-0">Carro Fuera</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="p-3 border rounded">
+                            <h4 class="text-success">$1,500</h4>
+                            <p class="mb-0">Moto Dentro</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="p-3 border rounded">
+                            <h4 class="text-warning">$1,000</h4>
+                            <p class="mb-0">Moto Fuera</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accesos Rápidos -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Accesos Rápidos</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="@Url.Action("Create", "Usuarios")" class="btn btn-outline-primary">
+                        Registrar Usuario
+                    </a>
+                    <a href="@Url.Action("Create", "Vehiculos")" class="btn btn-outline-success">
+                        Registrar Vehículo
+                    </a>
+                    <a href="@Url.Action("Index", "Parqueo")" class="btn btn-outline-info">
+                        Ver Parqueo Activo
+                    </a>
+                    <a href="@Url.Action("Reportes", "Parqueo")" class="btn btn-outline-warning">
+                        Ver Reportes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

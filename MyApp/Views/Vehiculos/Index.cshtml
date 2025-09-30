@@ -1,0 +1,63 @@
+@model IEnumerable<MyApp.Models.Vehiculo>
+
+@{
+    ViewData["Title"] = "Vehículos";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Vehículos</h1>
+    <a href="@Url.Action("Create")" class="btn btn-primary">
+        Nuevo Vehículo
+    </a>
+</div>
+
+<div class="row">
+    @foreach (var vehiculo in Model)
+    {
+        <div class="col-md-6 col-lg-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @vehiculo.Placa
+                    </h5>
+                    <p class="card-text">
+                        <strong>Propietario:</strong> @vehiculo.Usuario.Nombre<br>
+                        <strong>Marca:</strong> @vehiculo.Marca<br>
+                        <strong>Modelo:</strong> @vehiculo.Modelo<br>
+                        <strong>Tipo:</strong>
+                        <span class="badge @(vehiculo.Tipo == "Carro" ? "bg-primary" : "bg-info")">
+                            @vehiculo.Tipo
+                        </span>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        @using (Html.BeginForm("Ingresar", "Vehiculos", FormMethod.Post, new { @class = "d-inline" }))
+                        {
+                            <input type="hidden" name="id" value="@vehiculo.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Ingresar
+                            </button>
+                        }
+                        @using (Html.BeginForm("Reservar", "Vehiculos", FormMethod.Post, new { @class = "d-inline" }))
+                        {
+                            <input type="hidden" name="id" value="@vehiculo.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                Reservar
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        <h4>No hay vehículos registrados</h4>
+        <p>Comience registrando el primer vehículo del sistema.</p>
+        <a href="@Url.Action("Create")" class="btn btn-primary">Registrar Vehículo</a>
+    </div>
+}

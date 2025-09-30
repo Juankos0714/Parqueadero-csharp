@@ -1,0 +1,68 @@
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<h1>Reportes del Parqueadero</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Ingresos del Mes</h5>
+            </div>
+            <div class="card-body text-center">
+                <h2 class="display-4 text-success">$@ViewBag.IngresosMes.ToString("N0")</h2>
+                <p class="text-muted">@DateTime.Now.ToString("MMMM yyyy")</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0">Resumen del Mes</h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Total vehículos atendidos:</strong> @((List<dynamic>)ViewBag.ReporteVehiculos).Count</p>
+                <p><strong>Promedio por vehículo:</strong> 
+                   $@(ViewBag.IngresosMes > 0 && ((List<dynamic>)ViewBag.ReporteVehiculos).Count > 0 
+                      ? (ViewBag.IngresosMes / ((List<dynamic>)ViewBag.ReporteVehiculos).Count).ToString("N0") 
+                      : "0")</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5 class="mb-0">Pagos por Vehículo</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Total Pagado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var vehiculo in (List<MyApp.Controllers.ReporteVehiculo>)ViewBag.ReporteVehiculos)
+                    {
+                        <tr>
+                            <td><strong>@vehiculo.Placa</strong></td>
+                            <td class="text-end">$@vehiculo.TotalPagado.ToString("N0")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+        @if (!((List<MyApp.Controllers.ReporteVehiculo>)ViewBag.ReporteVehiculos).Any())
+        {
+            <div class="alert alert-info text-center">
+                <p class="mb-0">No hay datos de pagos para este mes.</p>
+            </div>
+        }
+    </div>
+</div>

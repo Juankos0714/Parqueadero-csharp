@@ -1,0 +1,22 @@
+@model MyApp.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">Ocurrió un error al procesar su solicitud.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Pasos para resolver:</h3>
+<ul>
+    <li>Verifique que todos los campos requeridos estén completos</li>
+    <li>Asegúrese de que la base de datos esté funcionando</li>
+    <li>Revise los logs de la aplicación para más detalles</li>
+</ul>
