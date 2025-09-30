@@ -29,6 +29,8 @@
                 </div>
 
                 <form id="logout-form" asp-action="Logout" asp-controller="Account" method="post" class="d-none">
+                    @Html.AntiForgeryToken()
+                
                 </form>
             </div>
         </div>

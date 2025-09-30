@@ -21,9 +21,10 @@ namespace MyApp.Models
 
         [Required(ErrorMessage = "Debe seleccionar un propietario")]
         public int UsuarioId { get; set; }
-
-        // Navegación
         public virtual Usuario Usuario { get; set; } = null!;
+
+        public virtual ICollection<ReservaCupo> ReservasCupos { get; set; } = new List<ReservaCupo>();
+
         public virtual ICollection<RegistroParqueo> RegistrosParqueo { get; set; } = new List<RegistroParqueo>();
     }
 }
