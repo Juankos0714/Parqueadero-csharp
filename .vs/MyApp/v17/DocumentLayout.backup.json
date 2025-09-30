@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\usuarios\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\models\\vehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\models\\vehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\vehiculos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\vehiculos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\parqueo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\parqueo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\vehiculos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\vehiculos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\controllers\\vehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\controllers\\vehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Parqueo\\Index.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\Index.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Parqueo\\Index.cshtml",
-              "ViewState": "AgIAACIAAAAAAAAAAAAQwCsAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T03:05:12.831Z",
+              "DocumentIndex": 0,
+              "Title": "Vehiculo.cs",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Vehiculo.cs",
+              "RelativeDocumentMoniker": "MyApp\\Models\\Vehiculo.cs",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Vehiculo.cs",
+              "RelativeToolTip": "MyApp\\Models\\Vehiculo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAcwBAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T03:50:34.54Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Index.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Vehiculos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Index.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Vehiculos\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T03:04:53.002Z",
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "MyApp\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Usuario.cs",
+              "RelativeToolTip": "MyApp\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T03:50:29.429Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Usuarios\\Create.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Usuarios\\Create.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Usuarios\\Create.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Usuarios\\Create.cshtml",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBgAAABaAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Create.cshtml",
+              "RelativeDocumentMoniker": "MyApp\\Views\\Vehiculos\\Create.cshtml",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Create.cshtml",
+              "RelativeToolTip": "MyApp\\Views\\Vehiculos\\Create.cshtml",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAuwGYAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T03:04:11.202Z",
+              "WhenOpened": "2025-09-30T03:49:50.55Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VehiculosController.cs",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\VehiculosController.cs",
+              "RelativeDocumentMoniker": "MyApp\\Controllers\\VehiculosController.cs",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\VehiculosController.cs",
+              "RelativeToolTip": "MyApp\\Controllers\\VehiculosController.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAFYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T03:49:33.254Z",
               "EditorCaption": ""
             }
           ]

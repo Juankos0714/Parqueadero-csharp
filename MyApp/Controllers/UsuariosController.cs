@@ -25,31 +25,63 @@ namespace MyApp.Controllers
         }
 
         [HttpPost]
-        [IgnoreAntiforgeryToken]
-        public async Task<IActionResult> Create([Bind("Nombre,Email,Rol")] Usuario usuario)
+        public async Task<IActionResult> Create(string Nombre, string Email, string Rol)
         {
             try
             {
-                // NO incluyas Id en el Bind
-                if (ModelState.IsValid)
+                // Debug: Log de lo que llega
+                Console.WriteLine($"=== DATOS RECIBIDOS ===");
+                Console.WriteLine($"Nombre: '{Nombre}'");
+                Console.WriteLine($"Email: '{Email}'");
+                Console.WriteLine($"Rol: '{Rol}'");
+                Console.WriteLine($"======================");
+
+                // Crear el usuario manualmente
+                var usuario = new Usuario
                 {
-                    _context.Add(usuario);
-                    await _context.SaveChangesAsync();
-                    TempData["Mensaje"] = "Usuario creado exitosamente";
-                    return RedirectToAction(nameof(Index));
-                }
-                else
+                    Nombre = Nombre?.Trim() ?? string.Empty,
+                    Email = Email?.Trim() ?? string.Empty,
+                    Rol = Rol?.Trim() ?? string.Empty,
+                    FechaRegistro = DateTime.Now
+                };
+
+                // Validar manualmente
+                if (string.IsNullOrWhiteSpace(usuario.Nombre))
                 {
-                    // Mostrar errores de validación
-                    var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-                    TempData["Error"] = "Errores de validación: " + string.Join(", ", errors);
+                    TempData["Error"] = "El nombre es obligatorio";
+                    return View(usuario);
                 }
+
+                if (string.IsNullOrWhiteSpace(usuario.Email))
+                {
+                    TempData["Error"] = "El email es obligatorio";
+                    return View(usuario);
+                }
+
+                if (!usuario.Email.Contains("@"))
+                {
+                    TempData["Error"] = "El email no es válido";
+                    return View(usuario);
+                }
+
+                if (string.IsNullOrWhiteSpace(usuario.Rol))
+                {
+                    TempData["Error"] = "Debe seleccionar un rol";
+                    return View(usuario);
+                }
+
+                _context.Add(usuario);
+                await _context.SaveChangesAsync();
+                TempData["Mensaje"] = "Usuario creado exitosamente";
+                return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"ERROR: {ex.Message}");
+                Console.WriteLine($"Stack: {ex.StackTrace}");
                 TempData["Error"] = "Error al crear el usuario: " + ex.Message;
+                return View(new Usuario());
             }
-            return View(usuario);
         }
 
         public async Task<IActionResult> Details(int? id)

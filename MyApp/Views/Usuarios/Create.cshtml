@@ -11,36 +11,44 @@
                 <h4 class="mb-0">Registrar Nuevo Usuario</h4>
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("Create", "Usuarios", FormMethod.Post, new { @class = "" }))
-                {
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <form method="post" action="/Usuarios/Create">
 
                     <div class="mb-3">
-                        <label asp-for="Nombre" class="form-label">Nombre Completo</label>
-                        <input asp-for="Nombre" class="form-control" placeholder="Ingrese el nombre completo" required />
-                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                        <label for="Nombre" class="form-label">Nombre Completo</label>
+                        <input type="text"
+                               id="Nombre"
+                               name="Nombre"
+                               class="form-control"
+                               placeholder="Ingrese el nombre completo"
+                               value="@Model?.Nombre"
+                               required />
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="Email" class="form-label">Correo Electrónico</label>
-                        <input asp-for="Email" type="email" class="form-control" placeholder="usuario@ejemplo.com" required />
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <label for="Email" class="form-label">Correo Electrónico</label>
+                        <input type="email"
+                               id="Email"
+                               name="Email"
+                               class="form-control"
+                               placeholder="usuario@ejemplo.com"
+                               value="@Model?.Email"
+                               required />
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="Rol" class="form-label">Rol</label>
-                        <select asp-for="Rol" class="form-select" required>
+                        <label for="Rol" class="form-label">Rol</label>
+                        <select id="Rol" name="Rol" class="form-select" required>
+                            <option value="">Seleccione un rol...</option>
                             <option value="Aprendiz">Aprendiz</option>
                             <option value="Funcionario">Funcionario</option>
                         </select>
-                        <span asp-validation-for="Rol" class="text-danger"></span>
                     </div>
 
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+                        <a href="/Usuarios" class="btn btn-secondary">Cancelar</a>
                         <button type="submit" class="btn btn-primary">Registrar Usuario</button>
                     </div>
-                }
+                </form>
             </div>
         </div>
     </div>
@@ -48,11 +56,27 @@
 
 @section Scripts {
     <script>
-        console.log('Formulario cargado');
-        document.querySelector('form').addEventListener('submit', function(e) {
-            console.log('Formulario enviado');
-            console.log('Method:', this.method);
-            console.log('Action:', this.action);
+        // Debug
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            console.log('=== Enviando formulario ===');
+            const formData = new FormData(this);
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: "${value}"`);
+            }
+        });
+
+        // Prevenir envío vacío
+        form.addEventListener('submit', function(e) {
+            const nombre = document.getElementById('Nombre').value.trim();
+            const email = document.getElementById('Email').value.trim();
+            const rol = document.getElementById('Rol').value;
+
+            if (!nombre || !email || !rol) {
+                e.preventDefault();
+                alert('Por favor complete todos los campos');
+                return false;
+            }
         });
     </script>
 }

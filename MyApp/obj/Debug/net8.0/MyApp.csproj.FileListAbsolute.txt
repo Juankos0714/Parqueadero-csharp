@@ -101,3 +101,5 @@ C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\D
 C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\Debug\net8.0\MyApp.pdb
 C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\Debug\net8.0\MyApp.genruntimeconfig.cache
 C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\Debug\net8.0\ref\MyApp.dll
+C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\Debug\net8.0\MyApp.sourcelink.json
+C:\Users\jucar\Documentos\Software_Development\Carlos Manuel\project\MyApp\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -1,7 +1,6 @@
-@model MyApp.Models.Vehiculo
-
 @{
     ViewData["Title"] = "Nuevo Vehículo";
+    var usuarios = ViewBag.Usuarios as List<MyApp.Models.Usuario>;
 }
 
 <div class="row justify-content-center">
@@ -11,52 +10,112 @@
                 <h4 class="mb-0">Registrar Nuevo Vehículo</h4>
             </div>
             <div class="card-body">
-                @using (Html.BeginForm("Create", "Vehiculos", FormMethod.Post))
+
+                @if (usuarios == null || !usuarios.Any())
                 {
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-                    <div class="mb-3">
-                        <label asp-for="Placa" class="form-label">Placa</label>
-                        <input asp-for="Placa" class="form-control" placeholder="ABC123" required />
-                        <span asp-validation-for="Placa" class="text-danger"></span>
+                    <div class="alert alert-warning">
+                        <h5>No hay usuarios registrados</h5>
+                        <p>Debe registrar al menos un usuario antes de crear un vehículo.</p>
+                        <a href="/Usuarios/Create" class="btn btn-primary">Registrar Usuario</a>
                     </div>
+                }
+                else
+                {
+                    <form method="post" action="/Vehiculos/Create">
 
-                    <div class="mb-3">
-                        <label asp-for="Tipo" class="form-label">Tipo de Vehículo</label>
-                        <select asp-for="Tipo" class="form-select" required>
-                            <option value="">Seleccione...</option>
-                            <option value="Carro">Carro</option>
-                            <option value="Moto">Moto</option>
-                        </select>
-                        <span asp-validation-for="Tipo" class="text-danger"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label for="Placa" class="form-label">Placa</label>
+                            <input type="text"
+                                   id="Placa"
+                                   name="Placa"
+                                   class="form-control"
+                                   placeholder="ABC123"
+                                   style="text-transform: uppercase;"
+                                   required />
+                            <small class="text-muted">Ejemplo: ABC123, XYZ789</small>
+                        </div>
 
-                    <div class="mb-3">
-                        <label asp-for="Marca" class="form-label">Marca</label>
-                        <input asp-for="Marca" class="form-control" placeholder="Toyota, Honda, etc." required />
-                        <span asp-validation-for="Marca" class="text-danger"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label for="Tipo" class="form-label">Tipo de Vehículo</label>
+                            <select id="Tipo" name="Tipo" class="form-select" required>
+                                <option value="">Seleccione el tipo...</option>
+                                <option value="Carro">Carro</option>
+                                <option value="Moto">Moto</option>
+                            </select>
+                        </div>
 
-                    <div class="mb-3">
-                        <label asp-for="Modelo" class="form-label">Modelo</label>
-                        <input asp-for="Modelo" class="form-control" placeholder="Corolla, Civic, etc." required />
-                        <span asp-validation-for="Modelo" class="text-danger"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label for="Marca" class="form-label">Marca</label>
+                            <input type="text"
+                                   id="Marca"
+                                   name="Marca"
+                                   class="form-control"
+                                   placeholder="Toyota, Honda, Yamaha, etc."
+                                   required />
+                        </div>
 
-                    <div class="mb-3">
-                        <label asp-for="UsuarioId" class="form-label">Propietario</label>
-                        <select asp-for="UsuarioId" class="form-select" asp-items="ViewBag.UsuarioId" required>
-                            <option value="">Seleccione el propietario...</option>
-                        </select>
-                        <span asp-validation-for="UsuarioId" class="text-danger"></span>
-                    </div>
+                        <div class="mb-3">
+                            <label for="Modelo" class="form-label">Modelo</label>
+                            <input type="text"
+                                   id="Modelo"
+                                   name="Modelo"
+                                   class="form-control"
+                                   placeholder="Corolla, Civic, FZ, etc."
+                                   required />
+                        </div>
 
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
-                        <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
-                    </div>
+                        <div class="mb-3">
+                            <label for="UsuarioId" class="form-label">Propietario</label>
+                            <select id="UsuarioId" name="UsuarioId" class="form-select" required>
+                                <option value="">Seleccione el propietario...</option>
+                                @foreach (var usuario in usuarios)
+                                {
+                                    <option value="@usuario.Id">
+                                        @usuario.Nombre - @usuario.Email (@usuario.Rol)
+                                    </option>
+                                }
+                            </select>
+                            <small class="text-muted">Total de usuarios disponibles: @usuarios.Count</small>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/Vehiculos" class="btn btn-secondary">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
+                        </div>
+                    </form>
                 }
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Debug
+        const form = document.querySelector('form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                console.log('=== Enviando formulario de vehículo ===');
+                const formData = new FormData(this);
+                for (let [key, value] of formData.entries()) {
+                    console.log(`${key}: "${value}"`);
+                }
+            });
+
+            // Validación adicional
+            form.addEventListener('submit', function(e) {
+                const usuarioId = document.getElementById('UsuarioId').value;
+                if (!usuarioId || usuarioId === '') {
+                    e.preventDefault();
+                    alert('Por favor seleccione un propietario');
+                    return false;
+                }
+            });
+
+            // Auto-uppercase para la placa
+            document.getElementById('Placa').addEventListener('input', function(e) {
+                this.value = this.value.toUpperCase();
+            });
+        }
+    </script>
+}

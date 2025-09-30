@@ -7,11 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// Antiforgery deshabilitado para desarrollo
-// builder.Services.AddAntiforgery(options =>
-// {
-//     options.HeaderName = "RequestVerificationToken";
-// });
+// Habilitar Antiforgery
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "RequestVerificationToken";
+});
 
 // Conexión con MySQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
