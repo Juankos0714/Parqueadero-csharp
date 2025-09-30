@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Disponibilidad del Parqueadero";
+}
+
+<h1>Disponibilidad del Parqueadero</h1>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5>Carros</h5>
+            </div>
+            <div class="card-body">
+                <h6>Ubicación "Dentro"</h6>
+                <p>Ocupados: <strong>@ViewBag.CarrosDentro</strong> / @ViewBag.MaxCarros</p>
+                <p>Disponibles: <strong>@(ViewBag.MaxCarros - ViewBag.CarrosDentro)</strong></p>
+
+                <hr>
+
+                <h6>Ubicación "Fuera"</h6>
+                <p>Ocupados: <strong>@ViewBag.CarrosFuera</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5>Motos</h5>
+            </div>
+            <div class="card-body">
+                <h6>Ubicación "Dentro"</h6>
+                <p>Ocupados: <strong>@ViewBag.MotosDentro</strong> / @ViewBag.MaxMotos</p>
+                <p>Disponibles: <strong>@(ViewBag.MaxMotos - ViewBag.MotosDentro)</strong></p>
+
+                <hr>
+
+                <h6>Ubicación "Fuera"</h6>
+                <p>Ocupados: <strong>@ViewBag.MotosFuera</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5>Resumen Total</h5>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ubicación</th>
+                            <th>Carros</th>
+                            <th>Motos</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Dentro</strong></td>
+                            <td>@ViewBag.CarrosDentro / @ViewBag.MaxCarros</td>
+                            <td>@ViewBag.MotosDentro / @ViewBag.MaxMotos</td>
+                            <td><strong>@(ViewBag.CarrosDentro + ViewBag.MotosDentro)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fuera</strong></td>
+                            <td>@ViewBag.CarrosFuera</td>
+                            <td>@ViewBag.MotosFuera</td>
+                            <td><strong>@(ViewBag.CarrosFuera + ViewBag.MotosFuera)</strong></td>
+                        </tr>
+                        <tr class="table-active">
+                            <td><strong>TOTAL</strong></td>
+                            <td><strong>@(ViewBag.CarrosDentro + ViewBag.CarrosFuera)</strong></td>
+                            <td><strong>@(ViewBag.MotosDentro + ViewBag.MotosFuera)</strong></td>
+                            <td><strong>@(ViewBag.CarrosDentro + ViewBag.MotosDentro + ViewBag.CarrosFuera + ViewBag.MotosFuera)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="@Url.Action("Index", "Parqueo")" class="btn btn-secondary">Volver a Parqueo Activo</a>
+</div>

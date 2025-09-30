@@ -40,12 +40,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFycXVlb1xNaUhpc3RvcmlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Parqueo/Reportes.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFycXVlb1xSZXBvcnRlcy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFjY2Vzc0RlbmllZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/Disponibilidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXERpc3BvbmliaWxpZGFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/Error.cshtml]
@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/Reportes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFJlcG9ydGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jucar/Documentos/Software_Development/Carlos Manuel/project/MyApp/Views/Shared/_Layout.cshtml]

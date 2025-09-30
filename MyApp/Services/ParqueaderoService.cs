@@ -86,46 +86,50 @@ namespace MyApp.Services
             if (registroActivo) throw new InvalidOperationException($"El vehículo {vehiculo.Placa} ya tiene un registro activo.");
 
             var disponibilidad = await ObtenerDisponibilidad();
-            string estado = "Fuera";
+            string estado = "Fuera"; // Por defecto, se asigna "Fuera"
             bool cupoDentroDisponible = false;
 
-            // 2. Asignación automática de estado inicial
+            // 2. Verificar disponibilidad de cupos "Dentro"
             if (vehiculo.Tipo == "Carro" && disponibilidad.carrosDentro < MAX_CARROS)
             {
-                estado = "Dentro";
                 cupoDentroDisponible = true;
             }
             else if (vehiculo.Tipo == "Moto" && disponibilidad.motosDentro < MAX_MOTOS)
             {
-                estado = "Dentro";
                 cupoDentroDisponible = true;
             }
 
-            // 3. Lógica de Reserva (Solo para Aprendices cuando el parqueadero está lleno)
-            if (vehiculo.Usuario.Rol == "Aprendiz" && !cupoDentroDisponible)
+            // 3. Lógica de asignación de estado
+            if (cupoDentroDisponible)
             {
-                // Si está lleno, debe tener una reserva activa para entrar.
+                // Hay cupo "Dentro" disponible - se asigna automáticamente
+                estado = "Dentro";
+            }
+            else if (vehiculo.Usuario.Rol == "Aprendiz")
+            {
+                // Parqueadero "Dentro" lleno - verificar si el Aprendiz tiene reserva
                 var reservaActiva = await _context.ReservasCupos
                     .Where(r => r.VehiculoId == vehiculoId && r.Activa && r.FechaHoraVencimiento > DateTime.Now)
                     .FirstOrDefaultAsync();
 
                 if (reservaActiva != null)
                 {
-                    // Si el Aprendiz tiene reserva, se le garantiza un cupo "Dentro" (aunque esté lleno)
+                    // El Aprendiz tiene reserva válida - se le garantiza cupo "Dentro"
                     estado = "Dentro";
-                    // Se cancela la reserva ya que se está utilizando
+                    // Cancelar la reserva ya que se está utilizando
                     reservaActiva.Activa = false;
                     _context.ReservasCupos.Update(reservaActiva);
                 }
                 else
                 {
-                    // Si está lleno y NO tiene reserva, no se le permite ingresar.
-                    throw new InvalidOperationException("El parqueadero interno está lleno y el Aprendiz no tiene reserva activa.");
+                    // Sin reserva y sin cupo - se asigna a "Fuera"
+                    estado = "Fuera";
                 }
             }
+            // Si es Funcionario y no hay cupo "Dentro", se asigna automáticamente a "Fuera"
+            // (el estado ya está en "Fuera" por defecto)
 
-            // 4. Si es Funcionario o si hay cupo "Dentro" (cupoDentroDisponible es true), se ingresa sin problema.
-
+            // 4. Crear el registro de parqueo
             var registro = new RegistroParqueo
             {
                 VehiculoId = vehiculoId,
@@ -136,7 +140,7 @@ namespace MyApp.Services
             _context.RegistrosParqueo.Add(registro);
             await _context.SaveChangesAsync();
 
-            return $"Vehículo ingresado **{estado.ToLower()}** del parqueadero. Ubicación asignada: **{estado}**.";
+            return $"Vehículo ingresado. Ubicación asignada: **{estado}**.";
         }
 
         // -------------------------------------------------------------------
@@ -262,4 +266,3 @@ namespace MyApp.Services
         }
     }
 }
-

@@ -2,15 +2,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Data;
+using MyApp.Models;
 using MyApp.Services;
 using System.Security.Claims;
-using System.Collections.Generic; // Para List
-using System.Threading.Tasks;
-using System; // Para Exception
 
 namespace MyApp.Controllers
 {
-    [Authorize] // Requiere autenticación para todo el controlador
+    [Authorize]
     public class ParqueoController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,7 +20,7 @@ namespace MyApp.Controllers
             _parqueaderoService = parqueaderoService;
         }
 
-        // --- FUNCIONARIO: Vehículos Activos (Index) ---
+        // --- Funcionario: Ver vehículos activos en parqueadero ---
         [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Index()
         {
@@ -33,108 +31,50 @@ namespace MyApp.Controllers
                 .OrderByDescending(r => r.FechaHoraEntrada)
                 .ToListAsync();
 
-            // También puedes mostrar la disponibilidad en el ViewBag
-            var disponibilidad = await _parqueaderoService.ObtenerDisponibilidad();
-            ViewBag.Disponibilidad = disponibilidad;
-
             return View(registrosActivos);
         }
 
-        // --- FUNCIONARIO: Registrar Salida (Refactorizado) ---
+        // --- Funcionario: Registrar salida de vehículo ---
         [HttpPost]
         [Authorize(Roles = "Funcionario")]
-        [ValidateAntiForgeryToken] // Recomendado usar esto en lugar de IgnoreAntiforgeryToken
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> RegistrarSalida(int id)
         {
             try
             {
-                // El servicio maneja la lógica de cálculo (CalcularTarifa) y el cierre de registro.
                 var (valorPagado, tiempoMinutos) = await _parqueaderoService.RegistrarSalida(id);
-
-                TempData["Success"] = $"Salida registrada. El valor pagado es de **${valorPagado:N0}** por **{tiempoMinutos}** minutos de parqueo.";
+                TempData["Success"] = $"Salida registrada exitosamente. Valor a pagar: ${valorPagado:N0}. Tiempo: {tiempoMinutos} minutos.";
             }
             catch (KeyNotFoundException)
             {
-                return NotFound();
+                TempData["Error"] = "Registro no encontrado.";
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
-                TempData["Error"] = ex.Message;
-            }
-            catch (Exception)
-            {
-                TempData["Error"] = "Ocurrió un error inesperado al registrar la salida.";
+                TempData["Error"] = "Error al registrar la salida: " + ex.Message;
             }
 
             return RedirectToAction(nameof(Index));
         }
 
-        // --- FUNCIONARIO: Historial Completo ---
+        // --- Funcionario: Ver historial completo ---
         [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Historial()
         {
-            var historial = await _context.RegistrosParqueo
+            var registros = await _context.RegistrosParqueo
                 .Include(r => r.Vehiculo)
                 .ThenInclude(v => v.Usuario)
                 .Where(r => r.FechaHoraSalida != null)
                 .OrderByDescending(r => r.FechaHoraSalida)
                 .ToListAsync();
 
-            return View(historial);
+            return View(registros);
         }
 
-        // --- APRENDIZ: Mi Historial (Refactorizado con Servicio) ---
-        [Authorize(Roles = "Aprendiz")]
-        public async Task<IActionResult> MiHistorial()
-        {
-            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            // Validar y obtener el ID del usuario
-            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int usuarioId))
-            {
-                TempData["Error"] = "Error al identificar al usuario. Inicie sesión nuevamente.";
-                return RedirectToAction("Login", "Account");
-            }
-
-            // Se delega la obtención del historial al servicio
-            var historial = await _parqueaderoService.ObtenerRegistrosUsuario(usuarioId);
-
-            return View("MiHistorial", historial);
-        }
-
-        // --- APRENDIZ: Reservar Cupo (NUEVO) ---
-        [HttpPost]
-        [Authorize(Roles = "Aprendiz")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ReservarCupo(int vehiculoId)
-        {
-            try
-            {
-                await _parqueaderoService.ReservarCupo(vehiculoId);
-                TempData["Success"] = "¡Reserva exitosa! Tienes **30 minutos** para ingresar y asegurar tu cupo 'Dentro'.";
-            }
-            catch (InvalidOperationException ex)
-            {
-                TempData["Warning"] = ex.Message;
-            }
-            catch (KeyNotFoundException)
-            {
-                TempData["Error"] = "Vehículo no encontrado o no tienes permiso para reservarlo.";
-            }
-            catch (Exception)
-            {
-                TempData["Error"] = "Ocurrió un error inesperado al intentar reservar el cupo.";
-            }
-
-            // Asume que hay un controlador Vehiculos con una acción MisVehiculos para volver
-            return RedirectToAction("MisVehiculos", "Vehiculos");
-        }
-
-        // --- FUNCIONARIO: Reportes (Refactorizado con Servicio) ---
+        // --- Funcionario: Ver reportes ---
         [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Reportes()
         {
-            // Se delega toda la lógica de cálculo de reportes al servicio
             var (ingresosMes, reporteVehiculos) = await _parqueaderoService.ObtenerIngresosMes();
 
             ViewBag.IngresosMes = ingresosMes;
@@ -142,9 +82,40 @@ namespace MyApp.Controllers
 
             return View();
         }
+
+        // --- Funcionario: Ver disponibilidad ---
+        [Authorize(Roles = "Funcionario")]
+        public async Task<IActionResult> Disponibilidad()
+        {
+            var disponibilidad = await _parqueaderoService.ObtenerDisponibilidad();
+
+            ViewBag.CarrosDentro = disponibilidad.carrosDentro;
+            ViewBag.MotosDentro = disponibilidad.motosDentro;
+            ViewBag.CarrosFuera = disponibilidad.carrosFuera;
+            ViewBag.MotosFuera = disponibilidad.motosFuera;
+            ViewBag.MaxCarros = 20;
+            ViewBag.MaxMotos = 20;
+
+            return View();
+        }
+
+        // --- Aprendiz: Ver su historial ---
+        [Authorize(Roles = "Aprendiz")]
+        public async Task<IActionResult> MiHistorial()
+        {
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!int.TryParse(userIdClaim, out int usuarioId))
+            {
+                TempData["Error"] = "Error de autenticación.";
+                return RedirectToAction("Login", "Account");
+            }
+
+            var registros = await _parqueaderoService.ObtenerRegistrosUsuario(usuarioId);
+            return View(registros);
+        }
     }
 
-    // Se mantiene aquí para que sea visible en el namespace MyApp.Controllers
+    // Clase auxiliar para reportes
     public class ReporteVehiculo
     {
         public string Placa { get; set; } = string.Empty;

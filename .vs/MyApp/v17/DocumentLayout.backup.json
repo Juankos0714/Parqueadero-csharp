@@ -3,64 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\vehiculos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\vehiculos\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\shared\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\shared\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\controllers\\vehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\controllers\\vehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\shared\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\shared\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\vehiculos\\misvehiculos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\vehiculos\\misvehiculos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\services\\parqueaderoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\services\\parqueaderoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\models\\vehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\models\\vehiculo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\shared\\disponibilidad.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\shared\\disponibilidad.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\controllers\\parqueocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\controllers\\parqueocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\parqueo\\mihistorial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\parqueo\\mihistorial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\aprendiz\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\aprendiz\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\views\\parqueo\\historial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\views\\parqueo\\historial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|c:\\users\\jucar\\documentos\\software_development\\carlos manuel\\project\\myapp\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}|MyApp\\MyApp.csproj|solutionrelative:myapp\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -78,194 +34,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VehiculosController.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\VehiculosController.cs",
-              "RelativeDocumentMoniker": "MyApp\\Controllers\\VehiculosController.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\VehiculosController.cs",
-              "RelativeToolTip": "MyApp\\Controllers\\VehiculosController.cs",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAIsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T03:49:33.254Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\Login.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Shared\\Login.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\Login.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Shared\\Login.cshtml",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAwwEsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:06:08.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Create.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Vehiculos\\Create.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\Create.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Vehiculos\\Create.cshtml",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAkwHkAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T03:49:50.55Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LoginController.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\LoginController.cs",
-              "RelativeDocumentMoniker": "MyApp\\Controllers\\LoginController.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\LoginController.cs",
-              "RelativeToolTip": "MyApp\\Controllers\\LoginController.cs",
-              "ViewState": "AgIAAEIAAADAxkcm0EswwEsAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T04:04:37.369Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAG8AAAAAAAAAAAAjwIAAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:07:25.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AccessDenied.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\AccessDenied.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Shared\\AccessDenied.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\AccessDenied.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Shared\\AccessDenied.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAA0AAABgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:06:38.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MiHistorial.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\MiHistorial.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Parqueo\\MiHistorial.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\MiHistorial.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Parqueo\\MiHistorial.cshtml",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAwwIAAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:11:32.494Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Vehiculo.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Vehiculo.cs",
-              "RelativeDocumentMoniker": "MyApp\\Models\\Vehiculo.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Vehiculo.cs",
-              "RelativeToolTip": "MyApp\\Models\\Vehiculo.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T03:50:34.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ParqueoController.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\ParqueoController.cs",
-              "RelativeDocumentMoniker": "MyApp\\Controllers\\ParqueoController.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\ParqueoController.cs",
-              "RelativeToolTip": "MyApp\\Controllers\\ParqueoController.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAADwv4cAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T04:07:45.206Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MisVehiculos.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\MisVehiculos.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Vehiculos\\MisVehiculos.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Vehiculos\\MisVehiculos.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Vehiculos\\MisVehiculos.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:09:30.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ParqueaderoService.cs",
               "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Services\\ParqueaderoService.cs",
               "RelativeDocumentMoniker": "MyApp\\Services\\ParqueaderoService.cs",
               "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Services\\ParqueaderoService.cs",
               "RelativeToolTip": "MyApp\\Services\\ParqueaderoService.cs",
-              "ViewState": "AgIAAAUBAAAAAAAAAAAWwAkBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAzwPoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T04:26:12.013Z",
+              "WhenOpened": "2025-09-30T06:08:22.004Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Aprendiz\\Create.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Aprendiz\\Create.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Aprendiz\\Create.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Aprendiz\\Create.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAwwH4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Disponibilidad.cshtml",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\Disponibilidad.cshtml",
+              "RelativeDocumentMoniker": "MyApp\\Views\\Shared\\Disponibilidad.cshtml",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\Disponibilidad.cshtml",
+              "RelativeToolTip": "MyApp\\Views\\Shared\\Disponibilidad.cshtml",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAswDMAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:10:57.064Z"
+              "WhenOpened": "2025-09-30T05:51:23.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Program.cs",
-              "RelativeDocumentMoniker": "MyApp\\Program.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Program.cs",
-              "RelativeToolTip": "MyApp\\Program.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAADwvzwAAAABAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ParqueoController.cs",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\ParqueoController.cs",
+              "RelativeDocumentMoniker": "MyApp\\Controllers\\ParqueoController.cs",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Controllers\\ParqueoController.cs",
+              "RelativeToolTip": "MyApp\\Controllers\\ParqueoController.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAADwv2QAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T04:07:07.599Z"
+              "WhenOpened": "2025-09-30T05:49:27.988Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Historial.cshtml",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\Historial.cshtml",
-              "RelativeDocumentMoniker": "MyApp\\Views\\Parqueo\\Historial.cshtml",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Parqueo\\Historial.cshtml",
-              "RelativeToolTip": "MyApp\\Views\\Parqueo\\Historial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MyApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MyApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAApwFEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-30T04:05:37.52Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "MyApp\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\jucar\\Documentos\\Software_Development\\Carlos Manuel\\project\\MyApp\\Models\\Usuario.cs",
-              "RelativeToolTip": "MyApp\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T03:50:29.429Z"
+              "WhenOpened": "2025-09-30T04:07:25.3Z",
+              "EditorCaption": ""
             }
           ]
         },
