@@ -1,10 +1,13 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Data;
 using MyApp.Services;
+using System.Security.Claims;
 
 namespace MyApp.Controllers
 {
+    [Authorize] // Requiere autenticación para todo el controlador
     public class ParqueoController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -16,6 +19,8 @@ namespace MyApp.Controllers
             _parqueaderoService = parqueaderoService;
         }
 
+        // Solo Funcionarios pueden ver todos los registros activos
+        [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Index()
         {
             var registrosActivos = await _context.RegistrosParqueo
@@ -28,7 +33,9 @@ namespace MyApp.Controllers
             return View(registrosActivos);
         }
 
+        // Solo Funcionarios pueden registrar salidas
         [HttpPost]
+        [Authorize(Roles = "Funcionario")]
         [IgnoreAntiforgeryToken]
         public async Task<IActionResult> RegistrarSalida(int id)
         {
@@ -45,6 +52,8 @@ namespace MyApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Solo Funcionarios pueden ver el historial completo
+        [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Historial()
         {
             var historial = await _context.RegistrosParqueo
@@ -57,6 +66,24 @@ namespace MyApp.Controllers
             return View(historial);
         }
 
+        // Aprendices pueden ver solo su historial
+        [Authorize(Roles = "Aprendiz")]
+        public async Task<IActionResult> MiHistorial()
+        {
+            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+
+            var historial = await _context.RegistrosParqueo
+                .Include(r => r.Vehiculo)
+                .ThenInclude(v => v.Usuario)
+                .Where(r => r.Vehiculo.UsuarioId == usuarioId && r.FechaHoraSalida != null)
+                .OrderByDescending(r => r.FechaHoraSalida)
+                .ToListAsync();
+
+            return View("MiHistorial", historial);
+        }
+
+        // Solo Funcionarios pueden ver reportes
+        [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Reportes()
         {
             var inicioMes = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);

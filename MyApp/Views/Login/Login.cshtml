@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Iniciar Sesión";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">
+                    <i class="bi bi-box-arrow-in-right"></i> Sistema de Parqueadero
+                </h4>
+            </div>
+            <div class="card-body p-4">
+                <h5 class="text-center mb-4">Iniciar Sesión</h5>
+
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @TempData["Error"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+
+                <form method="post" asp-action="Login" asp-controller="Account">
+                    <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <div class="input-group">
+                            <span class="input-group-text">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="tu-email@sena.edu.co"
+                                   required
+                                   autofocus />
+                        </div>
+                        <small class="text-muted">
+                            Ingresa el email con el que te registraste
+                        </small>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi bi-box-arrow-in-right"></i> Ingresar
+                        </button>
+                    </div>
+                </form>
+
+                <hr class="my-4">
+
+                <div class="text-center">
+                    <p class="mb-2 text-muted">¿No tienes cuenta?</p>
+                    <a href="@Url.Action("Create", "Usuarios")" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-person-plus"></i> Registrarse
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info de roles -->
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6 class="card-title">Roles del Sistema</h6>
+                <ul class="mb-0 small">
+                    <li><strong>Aprendiz:</strong> Registra vehículos y consulta historial</li>
+                    <li><strong>Funcionario:</strong> Gestiona parqueo y genera reportes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+    }
+
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+    }
+</style>

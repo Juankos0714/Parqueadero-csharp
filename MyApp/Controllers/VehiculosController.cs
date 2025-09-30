@@ -1,12 +1,14 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyApp.Data;
 using MyApp.Models;
 using MyApp.Services;
+using System.Security.Claims;
 
 namespace MyApp.Controllers
 {
+    [Authorize] // Requiere autenticación
     public class VehiculosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +20,8 @@ namespace MyApp.Controllers
             _parqueaderoService = parqueaderoService;
         }
 
+        // Solo Funcionarios pueden ver todos los vehículos
+        [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Index()
         {
             var vehiculos = await _context.Vehiculos
@@ -26,7 +30,101 @@ namespace MyApp.Controllers
             return View(vehiculos);
         }
 
+        // Aprendices pueden ver solo sus vehículos
+        [Authorize(Roles = "Aprendiz")]
+        public async Task<IActionResult> MisVehiculos()
+        {
+            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+
+            var vehiculos = await _context.Vehiculos
+                .Include(v => v.Usuario)
+                .Where(v => v.UsuarioId == usuarioId)
+                .ToListAsync();
+
+            return View("MisVehiculos", vehiculos);
+        }
+
+        // Aprendices pueden crear sus propios vehículos
+        [Authorize(Roles = "Aprendiz")]
         public async Task<IActionResult> Create()
+        {
+            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+            var usuario = await _context.Usuarios.FindAsync(usuarioId);
+
+            ViewBag.Usuario = usuario;
+            return View();
+        }
+
+        // Aprendices crean vehículos para sí mismos
+        [HttpPost]
+        [Authorize(Roles = "Aprendiz")]
+        public async Task<IActionResult> Create(string Placa, string Tipo, string Marca, string Modelo)
+        {
+            try
+            {
+                var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+
+                // Validaciones
+                if (string.IsNullOrWhiteSpace(Placa))
+                {
+                    TempData["Error"] = "La placa es obligatoria";
+                    var usuario = await _context.Usuarios.FindAsync(usuarioId);
+                    ViewBag.Usuario = usuario;
+                    return View();
+                }
+
+                if (string.IsNullOrWhiteSpace(Tipo))
+                {
+                    TempData["Error"] = "El tipo de vehículo es obligatorio";
+                    var usuario = await _context.Usuarios.FindAsync(usuarioId);
+                    ViewBag.Usuario = usuario;
+                    return View();
+                }
+
+                if (string.IsNullOrWhiteSpace(Marca))
+                {
+                    TempData["Error"] = "La marca es obligatoria";
+                    var usuario = await _context.Usuarios.FindAsync(usuarioId);
+                    ViewBag.Usuario = usuario;
+                    return View();
+                }
+
+                if (string.IsNullOrWhiteSpace(Modelo))
+                {
+                    TempData["Error"] = "El modelo es obligatorio";
+                    var usuario = await _context.Usuarios.FindAsync(usuarioId);
+                    ViewBag.Usuario = usuario;
+                    return View();
+                }
+
+                // Crear el vehículo para el usuario actual
+                var vehiculo = new Vehiculo
+                {
+                    Placa = Placa.Trim().ToUpper(),
+                    Tipo = Tipo.Trim(),
+                    Marca = Marca.Trim(),
+                    Modelo = Modelo.Trim(),
+                    UsuarioId = usuarioId
+                };
+
+                _context.Add(vehiculo);
+                await _context.SaveChangesAsync();
+                TempData["Mensaje"] = "Vehículo registrado exitosamente";
+                return RedirectToAction(nameof(MisVehiculos));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR: {ex.Message}");
+                TempData["Error"] = "Error al registrar el vehículo: " + ex.Message;
+                var usuario = await _context.Usuarios.FindAsync(int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0"));
+                ViewBag.Usuario = usuario;
+                return View();
+            }
+        }
+
+        // Funcionarios pueden crear vehículos para cualquier usuario
+        [Authorize(Roles = "Funcionario")]
+        public async Task<IActionResult> CreateAdmin()
         {
             var usuarios = await _context.Usuarios.ToListAsync();
             ViewBag.Usuarios = usuarios;
@@ -34,7 +132,8 @@ namespace MyApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(string Placa, string Tipo, string Marca, string Modelo, int UsuarioId)
+        [Authorize(Roles = "Funcionario")]
+        public async Task<IActionResult> CreateAdmin(string Placa, string Tipo, string Marca, string Modelo, int UsuarioId)
         {
             try
             {
@@ -116,7 +215,9 @@ namespace MyApp.Controllers
             }
         }
 
+        // Solo Funcionarios pueden ingresar vehículos al parqueadero
         [HttpPost]
+        [Authorize(Roles = "Funcionario")]
         public async Task<IActionResult> Ingresar(int id)
         {
             var mensaje = await _parqueaderoService.IngresarVehiculo(id);
@@ -124,12 +225,24 @@ namespace MyApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Aprendices pueden reservar cupos para sus vehículos
         [HttpPost]
+        [Authorize(Roles = "Aprendiz")]
         public async Task<IActionResult> Reservar(int id)
         {
+            var usuarioId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+            var vehiculo = await _context.Vehiculos.FindAsync(id);
+
+            // Verificar que el vehículo pertenece al usuario
+            if (vehiculo == null || vehiculo.UsuarioId != usuarioId)
+            {
+                TempData["Error"] = "No tienes permiso para reservar este vehículo";
+                return RedirectToAction(nameof(MisVehiculos));
+            }
+
             var reservado = await _parqueaderoService.ReservarCupo(id);
             TempData["Mensaje"] = reservado ? "Cupo reservado por 30 minutos" : "No es necesario reservar cupo";
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(MisVehiculos));
         }
     }
 }
